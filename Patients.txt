@@ -1,0 +1,3 @@
+{"Id":1,"Reports":[{"StartDate":"2022-07-05T13:37:57.988Z","EndDate":"2022-07-05T13:37:57.988Z","City":"a","Location":"a"},{"StartDate":"2022-07-05T13:37:57.988Z","EndDate":"2022-07-05T13:37:57.988Z","City":"a","Location":"b"},{"StartDate":"2022-07-05T13:37:57.988Z","EndDate":"2022-07-05T13:37:57.988Z","City":"333","Location":"333"}]}
+{"Id":2,"Reports":[{"StartDate":"2022-07-05T13:37:57.988Z","EndDate":"2022-07-05T13:37:57.988Z","City":"b","Location":"b"}]}
+{"Id":3,"Reports":[{"StartDate":"2022-07-05T13:37:57.988Z","EndDate":"2022-07-05T13:37:57.988Z","City":"3","Location":"3"},{"StartDate":"2022-07-05T13:37:57.988Z","EndDate":"2022-07-05T13:37:57.988Z","City":"333","Location":"333"}]}

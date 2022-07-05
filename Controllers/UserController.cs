@@ -20,8 +20,14 @@ namespace EpidimiologyReportServer.Controllers
         // GET api/<UserController>/5
         [HttpGet("{patintId}")]
         public async Task<ActionResult<List<Report>>> Get(int patintId)
-        {
-            return await userService.GetPatientReports(patintId);
+        {  
+            var res=await userService.GetPatientReports(patintId);
+            if (res==null)
+            {
+                return NotFound();
+            }
+            return res;
+              
         }
 
         // POST api/<UserController>

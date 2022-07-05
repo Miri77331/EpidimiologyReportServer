@@ -32,7 +32,18 @@ namespace EpidimiologyReportServer
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "EpidimiologyReportServer", Version = "v1" });
             });
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll", p =>
+                {
+                    p.AllowAnyOrigin()
+                    .AllowAnyHeader()
+                    .AllowAnyMethod();
+                });
+            });
         }
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -44,9 +55,12 @@ namespace EpidimiologyReportServer
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "EpidimiologyReportServer v1"));
             }
 
+
             app.UseHttpsRedirection();
+            app.UseCors("AllowAll");
 
             app.UseRouting();
+
 
             app.UseAuthorization();
 
