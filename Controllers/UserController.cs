@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using EpidimiologyReportServer.Models;
+using EpidimiologyReportServer.Services;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,36 +14,22 @@ namespace EpidimiologyReportServer.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        // GET: api/<UserController>
-        [HttpGet]
-        public List<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
+        private UserService userService = new UserService();
 
+  
         // GET api/<UserController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet("{patintId}")]
+        public async Task<ActionResult<List<Report>>> Get(int patintId)
         {
-            return "value";
+            return await userService.GetPatientReports(patintId);
         }
 
         // POST api/<UserController>
-        [HttpPost]
-        public void Post([FromBody] string value)
+        [HttpPost("{patintId}")]
+        public async Task<ActionResult<Report>> Post(int patintId,[FromBody] Report report)
         {
+            return await userService.PostReport(patintId, report);
         }
 
-        // PUT api/<UserController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<UserController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
     }
 }
