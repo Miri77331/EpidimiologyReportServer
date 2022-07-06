@@ -16,26 +16,34 @@ namespace EpidimiologyReportServer.Controllers
     {
         private UserService userService = new UserService();
 
-  
+
         // GET api/<UserController>/5
         [HttpGet("{patintId}")]
         public async Task<ActionResult<List<Report>>> Get(int patintId)
-        {  
-            var res=await userService.GetPatientReports(patintId);
-            if (res==null)
+        {
+            var res = await userService.GetPatientReports(patintId);
+            if (res == null)
             {
                 return NotFound();
             }
             return res;
-              
+
         }
 
         // POST api/<UserController>
         [HttpPost("{patintId}")]
-        public async Task<ActionResult<Report>> Post(int patintId,[FromBody] Report report)
+        public async Task<ActionResult<Report>> Post(int patintId, [FromBody] Report report)
         {
             return await userService.PostReport(patintId, report);
         }
 
+        // DELETE api/<UserController>
+        [HttpDelete("{patintId}")]
+        public async Task Delete(int patintId, [FromBody] Report report)
+        {
+             await userService.DeleteReport(patintId, report);
+        }
     }
+
 }
+
