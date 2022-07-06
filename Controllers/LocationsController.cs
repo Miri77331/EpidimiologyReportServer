@@ -15,7 +15,7 @@ namespace EpidimiologyReportServer.Controllers
     public class LocationsController : ControllerBase
     {
         private LocationsService locationsService = new LocationsService();
-        
+
         // GET: api/<LocationsController>
         [HttpGet]
         public async Task<ActionResult<List<Report>>> Get()
